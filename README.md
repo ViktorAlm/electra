@@ -78,7 +78,7 @@ See `configure_pretraining.py` for the full set of supported hyperparameters.
 
 #### Evaluating the pre-trained model.
 
-To evaluate the model on a downstream task, see the below finetuning instructions. To evaluate the generator/discriminator on the openwebtext data run `python3 run_pretraining.py --data-dir $DATA_DIR --model-name electra_small_owt --hparams '{"do_train": false, "do_eval": true}'`. This will print out eval metrics such as the accuracy of the generator and discriminator, and also writing the metrics out to `data-dir/model-name/results`.
+To evaluate the model on a downstream task, see the below finetuning instructions. To evaluate the generator/discriminator on the openwebtext data run `python3 run_pretraining.py --data-dir $DATA_DIR --model-name electra_small_owt --hparams '{"do_train": false, "do_eval": true}'`. This will print out eval metrics such as the accuracy of the generator and discriminator, and also writing the metrics out to `data-dir/model-name/eval`.
 
 ## Fine-tuning
 
