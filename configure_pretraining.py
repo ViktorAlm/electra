@@ -79,10 +79,10 @@ class PretrainingConfig(object):
     self.eval_batch_size = 128
 
     # TPU settings
-    self.use_tpu = False
-    self.num_tpu_cores = 1
+    self.use_tpu = True
+    self.num_tpu_cores = 8
     self.tpu_job_name = None
-    self.tpu_name = None  # cloud TPU to use for training
+    self.tpu_name = "electracovid"  # cloud TPU to use for training
     self.tpu_zone = None  # GCE zone where the Cloud TPU is located in
     self.gcp_project = None  # project name for the Cloud TPU-enabled project
 
@@ -114,17 +114,17 @@ class PretrainingConfig(object):
       self.embedding_size = 128
     # Here are the hyperparameters we used for larger models; see Table 6 in the
     # paper for the full hyperparameters
-    # else:
-    #   self.max_seq_length = 512
-    #   self.learning_rate = 2e-4
-    #   if self.model_size == "base":
-    #     self.embedding_size = 768
-    #     self.generator_hidden_size = 0.33333
-    #     self.train_batch_size = 256
-    #   else:
-    #     self.embedding_size = 1024
-    #     self.mask_prob = 0.25
-    #     self.train_batch_size = 2048
+    else:
+      self.max_seq_length = 512
+      self.learning_rate = 2e-4
+      if self.model_size == "base":
+        self.embedding_size = 768
+        self.generator_hidden_size = 0.33333
+        self.train_batch_size = 256
+      else:
+        self.embedding_size = 1024
+        self.mask_prob = 0.25
+        self.train_batch_size = 2048
 
     # passed-in-arguments override (for example) debug-mode defaults
     self.update(kwargs)
